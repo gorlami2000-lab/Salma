@@ -1,0 +1,147 @@
+valentine-website/
+│
+├── index.html      ← الصفحة الأولى (Happy Valentine's Day)
+├── page2.html      ← الصفحة الثانية (You make my world brighter)
+├── page3.html      ← الصفحة الثالثة (Forever Together)
+├── page4.html      ← الصفحة الرابعة (I Will Love You Forever + قلب كبير)
+└── style.css       ← ملف التنسيقات (CSS مشترك لكل الصفحات)
+
+1. index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine's Day ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Happy Valentine's Day ❤️</h1>
+    <p class="typing">To My Laiba 🌹</p>
+    <p>You are the most wonderful person in my life 💕</p>
+    <button onclick="location.href='page2.html'">Next Page ➡️</button>
+  </div>
+
+  <div class="hearts"></div>
+  <div class="roses"></div>
+  <div class="teddy" style="left:20%; top:70%;"></div>
+  <div class="teddy" style="left:70%; top:75%;"></div>
+  <div class="crown">👑</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+2. page2.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>You make my world brighter 🌟</h1>
+    <p class="typing">To My Laiba 👑</p>
+    <p>Every day with you feels like a dream come true 💖</p>
+    <button onclick="location.href='page3.html'">Next Page ➡️</button>
+  </div>
+
+  <div class="hearts"></div>
+  <div class="roses"></div>
+  <div class="teddy" style="left:40%; top:65%;"></div>
+  <div class="teddy" style="left:60%; top:70%;"></div>
+  <div class="crown">👑</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+3. page3.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page 3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Forever Together ❤️</h1>
+    <p class="typing">To My Laiba 💕</p>
+    <p>No matter what, you will always be my Queen 👑</p>
+    <button onclick="location.href='page4.html'">Final Page ➡️</button>
+  </div>
+
+  <div class="hearts"></div>
+  <div class="roses"></div>
+  <div class="teddy" style="left:30%; top:65%;"></div>
+  <div class="teddy" style="left:50%; top:70%;"></div>
+  <div class="crown">👑</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+4. page4.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1 style="font-size:3em; color:#ff4b5c;">I Will Love You Forever</h1>
+    <p class="typing">To My Laiba ❤️</p>
+    <div class="big-heart">❤</div>
+    <button onclick="location.href='index.html'">Back to Start ⬅️</button>
+  </div>
+
+  <div class="hearts"></div>
+  <div class="roses"></div>
+  <div class="teddy" style="left:30%; top:65%;"></div>
+  <div class="teddy" style="left:50%; top:70%;"></div>
+  <div class="crown">👑</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+5. style.css
+
+(فيه كل التنسيقات والأنيميشنز: hearts, roses, teddy, crown, typing effect, big-heart)
+
+6. script.js
+
+const heartsContainer = document.querySelector('.hearts');
+const rosesContainer = document.querySelector('.roses');
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.innerHTML = '❤';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+  heartsContainer.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+
+function createRose() {
+  const rose = document.createElement('div');
+  rose.classList.add('rose');
+  rose.innerHTML = '🌹';
+  rose.style.left = Math.random() * 100 + 'vw';
+  rose.style.animationDuration = (Math.random() * 3 + 3) + 's';
+  rosesContainer.appendChild(rose);
+  setTimeout(() => rose.remove(), 6000);
+}
+
+setInterval(createHeart, 500);
+setInterval(createRose, 800);
